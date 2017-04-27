@@ -1,12 +1,14 @@
 var express = require('express');
 var app = express();
-var port=3000;
+var port=process.env.PORT || 3000;
 
 app.use(express.static(__dirname + '/public'));
-app.use(express.static(__dirname + '/src/views'));
+app.set('views','./src/views');
+app.set('view engine','ejs');
+//app.use(express.static(__dirname + '/src/views'));
 
 app.get('/',function(req,res){
-	res.send('hello')
+	res.render('index',{title:"hello i am here",list:['a','b']})
 });
 
 app.get('/books',function(req,res){
