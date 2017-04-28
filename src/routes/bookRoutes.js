@@ -2,7 +2,6 @@ var express = require('express');
 
 var bookRouter = express.Router();
 var router = function(nav){
-
 	var books = [{
   title: 'War and Peace',
   genre: 'Historical Fiction',
@@ -29,6 +28,7 @@ var router = function(nav){
   author: 'Henry Kuttner',
   read: false
 }];
+
 bookRouter.use(function(req, res, next){
     if(!req.user) {
        res.redirect('/');

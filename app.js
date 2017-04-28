@@ -1,5 +1,6 @@
 var express = require('express');
 var app = express();
+
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var passport = require('passport');
@@ -14,6 +15,7 @@ var nav = [{
       Text: 'Author'
     }]
 var bookRouter = require('./src/routes/bookRoutes')(nav);
+
 var authRouter = require('./src/routes/authRoutes')(nav);
 
 app.use(express.static(__dirname + '/public'));
@@ -23,12 +25,14 @@ app.use(cookieParser('a'));
 app.use(session({secert:'library'}));
 
 require('./src/config/passport')(app);
+app.use(express.static(__dirname + '/public'));
 app.set('views', './src/views');
 app.set('view engine', 'ejs');
 //app.use(express.static(__dirname + '/src/views'));
 
 
 app.use('/Books', bookRouter);
+
 app.use('/Auth',authRouter)
 
 app.get('/', function(req, res) {
