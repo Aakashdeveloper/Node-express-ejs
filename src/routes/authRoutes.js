@@ -7,7 +7,7 @@ var router = function() {
   authRouter.route('/signUp')
     .post(function(req, res) {
       console.log(req.body);
-      var url = 'mongodb://localhost:3100/libraryApp';
+      var url = 'mongodb://localhost:27017/libraryApp';
       mongodb.connect(url, function(err, db) {
         var collection = db.collection('users');
         var user = {
