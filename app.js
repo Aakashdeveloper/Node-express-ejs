@@ -6,7 +6,7 @@ var cookieParser = require('cookie-parser');
 var passport = require('passport');
 var session = require('express-session');
 
-var port = process.env.PORT || 3100;
+var port = process.env.PORT || 3300;
 var nav = [{
   Links: '/Books',
   Text: 'Book'
@@ -50,5 +50,6 @@ app.get('/books', function(req, res) {
 });
 
 app.listen(port, function(err) {
+
   console.log('running');
 });

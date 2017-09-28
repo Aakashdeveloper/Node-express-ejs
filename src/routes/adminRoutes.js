@@ -76,5 +76,6 @@ var router = function (nav) {
 
     return adminRouter;
 };
+   
 
 module.exports = router;
